@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex" />
+  <meta name="description" content="ぴょん活マップは全国のボランティア活動をリアルタイムで可視化するマップです。LINE botへの簡単な報告で地域の活動に貢献できます。">
+  <meta property="og:title" content="ぴょん活マップ｜全国のボランティア活動を可視化" />
+  <meta property="og:description" content="ぴょん活マップは全国のボランティア活動をリアルタイムで可視化するマップです。LINE botへの簡単な報告で地域の活動に貢献できます。" />
+  <meta property="og:url" content="https://pyonkatsu.net/" />
+  <meta property="og:type" content="website" />
+  <!--
+  <meta property="og:image" content="https://pyonkatsu.netlify.app/linebot/img3.jpg" />
+  -->
+
+  <title>ぴょん活マップ全国版</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <style>
+    .section-card {
+      background-color: #fff;
+      border: 1px solid #dee2e6;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .section-card h3 {
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .section-card a.btn,
+    .section-card .list-group-item {
+      border-radius: 0.5rem;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .small-note {
+      font-size: 0.9rem;
+      color: #6c757d;
+    }
+
+    @media (max-width: 576px) {
+      .section-card {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-sm my-4">
+
+    <div class="section-card">
+      <h3>🐇新機能！こくうさボランティアポータル🐇</h3>
+      <div class="mb-3">
+        <a href="https://usapo.net" class="btn btn-outline-primary w-100 mb-3">
+          ログインしてこれまでの履歴を見てみる
+        </a>
+        <div class="small-note">
+          過去の自分のポスティング履歴やポイント登録の履歴を見ることが出来るサイトを用意しました。<br>
+          ようやく認証の基盤が出来たので、今後はボランティアイベントの企画、チーム毎のマップ、Webから直接報告など、これまで要望を受けても出来なかった機能を充実させていきます。<br>
+
+          <br>
+        </div>
+        <h3>🐇公式のポスティングマップが出来ました！🐇</h3>
+        <div>
+          旧ぴょん活マップの利用者の熱意が党本部に届き、ぴょん活マップと同等のポスティングマップが公式のサービスとして用意されました！<br>
+          党本部のチラシのポスティング報告は公式のポスティングマップに報告してください！それ以外のチラシは本サイトをぜひぜひお使いください。
+        </div>
+        <a href="https://club.new-kokumin.jp/" class="btn btn-outline-primary w-100 mb-3">
+          こくみんクラブへ
+        </a>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>🐇ポイント報告機能🐇</h3>
+      <div class="mb-3">
+        <a href="#" class="btn btn-outline-primary w-100 mb-3" onclick="parent.postMessage({type: 'switch-tab', src: './pinmap/'}, '*')">
+          ピンマップに登録しよう！
+        </a>
+        <div class="small-note">
+          気になるポイントを見つけたら地図をタップしてLINEで報告してみましょう！<br>
+          （ポスティングマップとは別の地図ですが報告用LINEは共通です）<br>
+          現在登録できるのは以下の2タイプです。<br>
+          ・多党貼りポイント<br>
+          ・ポスティング禁止マンション<br>
+          ※100%善意での登録をお願いいたします。荒らし防止のためHASH化してLINE IDを記録していますので、迷惑行為があった場合は投稿禁止等の対処を行いますのでご承知おきください。
+        </div>
+      </div>
+    </div>
+
+    <!-- 🐇 ぴょん活報告マップ -->
+    <div class="section-card">
+      <h3>🐇ぴょん活報告マップ全国版🐇</h3>
+      <div class="mb-3">
+        <a href="#" class="btn btn-outline-primary w-100 mb-3" onclick="parent.postMessage({type: 'switch-tab', src: './conquer/'}, '*')">
+          ポスティングして全国に色を塗ろう！
+        </a>
+        <div class="small-note">
+          ↑クリックして地図表示
+        </div>
+      </div>
+
+      <!-- コピペ用テキスト -->
+      <div class="mb-3">
+        <label for="copyText" class="form-label">📋報告テンプレ（クリックでコピー）</label>
+        <textarea id="copyText" class="form-control mb-2" rows="4" readonly style="cursor:pointer;"
+          onclick="copyToClipboard()">ぴょん活報告
+東京都千代田区永田町1丁目
+100
+テスト投稿</textarea>
+        <div id="copyMsg" class="text-success small" style="display:none;">✅ コピーしました！</div>
+      </div>
+
+      <!-- コピー後の案内文 -->
+      <div class="small-note">
+        コピーしたら、2行目：住所、3行目：枚数、4行目：コメント を書き換えて、LINEに貼って送信してください🐰<br>
+        地図上で「住所検索」してコピーするのが確実です🐰<br>
+        2025/11/7 「ぴょん活」という表記が使えなくなるため、新機能のうさポの開発を進めつつぴょん活マップから移行していく予定です。しばらく残りますがご容赦ください。<br>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>🐰タグ機能追加のお知らせ🐰</h3>
+      <div class="mb-3">
+        <div class="small-note">
+          チラシの種類を分けてカウントしたり、陣営で枚数を管理したい場合にタグをつけて独自に集計する機能を追加しました。<br>
+          4行目以降のコメントにキーワードを追加してBOTに報告するだけ！<br>
+          1行目：ぴょん活報告<br>
+          2行目：住所<br>
+          3行目：枚数<br>
+          4行目以降：タグ1 タグ2 コメント<br>
+          利用希望者は管理人までお知らせください！
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-card">
+      <h3>➡️友達登録してぴょん活報告</h3>
+      <div class="mb-3">
+        <a href="https://lin.ee/Vk066W8r" class="btn btn-outline-primary w-100 mb-3">
+          📲 LINE登録はこちらから！
+        </a>
+      </div>
+      <div class="d-flex justify-content-center">
+        <img src="https://qr-official.line.me/gs/M_283euujy_BW.png?oat_content=qr" 
+             alt="LINE QRコード" 
+             class="img-fluid" 
+             style="max-width: 250px; border: 1px solid #ddd; border-radius: 1rem; padding: 0.5rem;">
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>このサイトの使い方</h3>
+      <div class="mb-3">
+        <a href="https://pyonkatsu.netlify.app/linebot/" class="btn btn-outline-primary w-100 mb-3">
+          簡易版マニュアルを見る
+        </a>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>アーカイブ</h3>
+      <div class="mb-3">
+        <a href="./conquer/?archive=2025summer" class="btn btn-outline-primary w-100 mb-3">2025 夏</a>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>ポスティングのやり方を知りたい</h3>
+      <div class="mb-3">
+        <a href="https://team.new-kokumin.jp/wp-content/themes/dpfp-vc/files/DPFP-GuideForSupportStaff-ver1.2.pdf" class="btn btn-outline-primary w-100 mb-3">
+          お手伝いガイド（党公式）
+        </a>
+        <a href="https://dpfp-db.com/posting/" class="btn btn-outline-primary w-100 mb-3">
+          ポスティング🔰初心者ガイド（あにーぶさん作）
+        </a>
+        <a href="https://team.new-kokumin.jp/evinfo_category/posting/" class="btn btn-outline-primary w-100 mb-3">
+          ポスティングを申し込もう！
+        </a>
+      </div>
+    </div>
+
+
+  </div>
+
+  <script>
+    function copyToClipboard() {
+      const textarea = document.getElementById("copyText");
+      textarea.select();
+      textarea.setSelectionRange(0, 99999); // モバイル対応
+
+      navigator.clipboard.writeText(textarea.value).then(() => {
+        const msg = document.getElementById("copyMsg");
+        msg.style.display = "block";
+        setTimeout(() => msg.style.display = "none", 2000);
+      });
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

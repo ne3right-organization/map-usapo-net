@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ぴょん活マップの使い方マニュアル">
+  <meta property="og:title" content="ぴょん活マップ｜使い方マニュアル" />
+  <meta property="og:description" content="ぴょん活マップの使い方マニュアル" />
+  <meta property="og:url" content="https://pyonkatsu.net/manual.html" />
+  <meta property="og:type" content="website" />
+
+  <title>ぴょん活マップ｜使い方マニュアル</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <style>
+    .section-card {
+      background-color: #fff;
+      border: 1px solid #dee2e6;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .section-card h3 {
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .section-card a.btn,
+    .section-card .list-group-item {
+      border-radius: 0.5rem;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .small-note {
+      font-size: 0.9rem;
+      color: #6c757d;
+    }
+
+    .step-number {
+      background-color: #007bff;
+      color: white;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    @media (max-width: 576px) {
+      .section-card {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-sm my-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1>🐰 ぴょん活マップ 使い方マニュアル</h1>
+      <a href="./index.html" class="btn btn-outline-secondary">← トップに戻る</a>
+    </div>
+
+    <!-- 基本の使い方 -->
+    <div class="section-card">
+      <h3>📋 基本的な使い方</h3>
+      <div class="mb-3">
+        <div class="d-flex align-items-start mb-3">
+          <span class="step-number">1</span>
+          <div>
+            <strong>LINE友達登録</strong><br>
+            <a href="https://lin.ee/Vk066W8r" class="btn btn-outline-primary btn-sm mt-1">
+              📲 LINE登録はこちらから！
+            </a>
+          </div>
+        </div>
+        
+        <div class="d-flex align-items-start mb-3">
+          <span class="step-number">2</span>
+          <div>
+            <strong>ポスティング活動を実施</strong><br>
+            <span class="small-note">地域でチラシのポスティング活動を行います</span>
+          </div>
+        </div>
+        
+        <div class="d-flex align-items-start mb-3">
+          <span class="step-number">3</span>
+          <div>
+            <strong>LINEで報告</strong><br>
+            <span class="small-note">以下のテンプレートを使用してLINEに報告してください</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 報告テンプレート -->
+    <div class="section-card">
+      <h3>📝 報告テンプレート</h3>
+      <div class="mb-3">
+        <label for="copyText" class="form-label">📋報告テンプレ（クリックでコピー）</label>
+        <textarea id="copyText" class="form-control mb-2" rows="4" readonly style="cursor:pointer;"
+          onclick="copyToClipboard()" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '||event.keyCode===13||event.keyCode===32){copyToClipboard();event.preventDefault();}">ぴょん活報告
+東京都千代田区永田町1丁目
+100
+テスト投稿</textarea>
+        <div id="copyMsg" class="text-success small" style="display:none;">✅ コピーしました！</div>
+      </div>
+      
+      <div class="small-note">
+        <strong>テンプレートの使い方：</strong><br>
+        1行目：ぴょん活報告（固定）<br>
+        2行目：住所（実際のポスティング場所）<br>
+        3行目：枚数（配布したチラシの枚数）<br>
+        4行目：コメント（任意のメッセージ）
+      </div>
+    </div>
+
+    <!-- タグ機能 -->
+    <div class="section-card">
+      <h3>🏷️ タグ機能の使い方</h3>
+      <div class="mb-3">
+        <div class="small-note">
+          チラシの種類を分けてカウントしたり、陣営で枚数を管理したい場合にタグをつけて独自に集計する機能です。<br>
+          4行目以降のコメントにキーワードを追加してBOTに報告するだけ！<br><br>
+          
+          <strong>例：</strong><br>
+          1行目：ぴょん活報告<br>
+          2行目：住所<br>
+          3行目：枚数<br>
+          4行目以降：タグ1 タグ2 コメント<br><br>
+          
+          <strong>利用方法：</strong><br>
+          利用希望者は管理人までお知らせください！
+        </div>
+      </div>
+    </div>
+
+    <!-- ポイント報告機能 -->
+    <div class="section-card">
+      <h3>📍 ポイント報告機能</h3>
+      <div class="mb-3">
+        <a href="./pinmap/" class="btn btn-outline-primary w-100 mb-3">
+          ピンマップβ版を見てみる
+        </a>
+        <div class="small-note">
+          気になるポイントを見つけたら地図をタップしてLINEで報告してみましょう！<br>
+          （ポスティングマップとは別の地図ですが報告用LINEは共通です）<br>
+          現在登録できるのは以下の2タイプです。<br>
+          ・多党貼りポイント<br>
+          ・ポスティング禁止マンション<br>
+          ※100%善意での登録をお願いいたします。荒らし防止のためHASH化してLINE IDを記録していますので、迷惑行為があった場合は投稿禁止等の対処を行いますのでご承知おきください。
+        </div>
+      </div>
+    </div>
+
+    <!-- 地図の使い方 -->
+    <div class="section-card">
+      <h3>🗺️ 地図の使い方</h3>
+      <div class="mb-3">
+        <a href="./conquer/" class="btn btn-outline-primary w-100 mb-3">
+          ポスティングして全国に色を塗ろう！
+        </a>
+        <div class="small-note">
+          ↑クリックして地図表示<br>
+          地図上で「住所検索」してコピーするのが確実です🐰
+        </div>
+      </div>
+    </div>
+
+    <!-- ポスティングのやり方 -->
+    <div class="section-card">
+      <h3>📮 ポスティングのやり方を知りたい</h3>
+      <div class="mb-3">
+        <a href="https://team.new-kokumin.jp/wp-content/themes/dpfp-vc/files/DPFP-GuideForSupportStaff-ver1.2.pdf"
+          class="btn btn-outline-primary w-100 mb-3">
+          お手伝いガイド（党公式）
+        </a>
+        <a href="https://dpfp-db.com/posting/" class="btn btn-outline-primary w-100 mb-3">
+          ポスティング🔰初心者ガイド（あにーぶさん作）
+        </a>
+        <a href="https://team.new-kokumin.jp/evinfo_category/posting/" class="btn btn-outline-primary w-100 mb-3">
+          ポスティングを申し込もう！
+        </a>
+      </div>
+    </div>
+
+    <!-- 注意事項 -->
+    <div class="section-card">
+      <h3>⚠️ 注意事項</h3>
+      <div class="mb-3">
+        <div class="small-note">
+          <ul>
+            <li>100%善意での登録をお願いいたします</li>
+            <li>荒らし防止のためHASH化してLINE IDを記録しています</li>
+            <li>迷惑行為があった場合は投稿禁止等の対処を行います</li>
+            <li>地図上で「住所検索」してコピーするのが確実です</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function copyToClipboard() {
+      const textarea = document.getElementById("copyText");
+      textarea.select();
+      textarea.setSelectionRange(0, 99999); // モバイル対応
+
+      navigator.clipboard.writeText(textarea.value).then(() => {
+        const msg = document.getElementById("copyMsg");
+        msg.textContent = "コピーしました！";
+        msg.style.display = "block";
+        msg.style.color = "green";
+        setTimeout(() => msg.style.display = "none", 2000);
+      }).catch((err) => {
+        const msg = document.getElementById("copyMsg");
+        msg.textContent = "コピーに失敗しました";
+        msg.style.display = "block";
+        msg.style.color = "red";
+        setTimeout(() => msg.style.display = "none", 2000);
+      });
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

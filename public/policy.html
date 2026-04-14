@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <title>利用規約・プライバシーポリシー</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #111827;
+      --muted: #6b7280;
+      --card: #f9fafb;
+      --border: #e5e7eb;
+      --link: #2563eb;
+      --accent: #10b981;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1020;
+        --fg: #e5e7eb;
+        --muted: #9ca3af;
+        --card: #121a33;
+        --border: #1f2937;
+        --link: #60a5fa;
+        --accent: #34d399;
+      }
+    }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.7;
+      -webkit-text-size-adjust: 100%;
+    }
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 16px env(safe-area-inset-right) 32px env(safe-area-inset-left);
+    }
+    header {
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: saturate(180%) blur(8px);
+      background: color-mix(in oklab, var(--bg) 85%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+    header .inner { display: flex; align-items: center; gap: 12px; padding: 12px 16px; }
+    h1 { font-size: clamp(20px, 3.5vw, 32px); margin: 0; }
+    .badge { font-size: 12px; color: var(--muted); border: 1px solid var(--border); padding: 2px 8px; border-radius: 999px; }
+    nav.toc {
+      margin: 12px 0 16px; padding: 8px 12px; background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+    }
+    nav.toc a { color: var(--link); text-decoration: none; }
+    nav.toc ul { margin: 8px 0; padding-left: 20px; }
+    section.card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 16px;
+      margin: 16px 0;
+    }
+    h2 { font-size: clamp(18px, 2.8vw, 26px); margin: 8px 0 4px; }
+    h3 { font-size: clamp(16px, 2.4vw, 22px); margin: 16px 0 8px; }
+    details { background: transparent; border: 1px dashed var(--border); border-radius: 14px; padding: 10px 12px; margin: 10px 0; }
+    details > summary { cursor: pointer; font-weight: 600; }
+    .muted { color: var(--muted); }
+    a { color: var(--link); }
+    .footer { color: var(--muted); font-size: 14px; margin-top: 28px; }
+    .grid { display: grid; gap: 12px; }
+    @media (min-width: 760px) { .grid.cols-2 { grid-template-columns: 1fr 1fr; } }
+    .pill { display: inline-block; padding: 2px 10px; border: 1px solid var(--border); border-radius: 999px; font-size: 12px; color: var(--muted); }
+    .cta {
+      display: inline-block; margin-top: 12px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 12px;
+      text-decoration: none; color: var(--fg); background: color-mix(in oklab, var(--accent) 12%, var(--card));
+    }
+    /* Print-friendly */
+    @media print {
+      header { position: static; backdrop-filter: none; }
+      nav.toc { break-inside: avoid; }
+      .cta { display: none; }
+      body { background: #fff; color: #000; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="inner container">
+      <h1>利用規約・プライバシーポリシー</h1>
+      <span class="badge" id="last-updated">最終更新日：2025-09-03</span>
+    </div>
+  </header>
+  <div class="container">
+
+    <nav class="toc" aria-label="目次">
+      <strong>目次</strong>
+      <ul>
+        <li><a href="#terms">利用規約</a></li>
+        <li><a href="#privacy">プライバシーポリシー</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+      <div class="muted" style="font-size:12px;">このページはスマホ表示に最適化されています。</div>
+    </nav>
+
+    <!-- 利用規約 -->
+    <section id="terms" class="card" aria-labelledby="terms-title">
+      <h2 id="terms-title">📜 利用規約（ひな形）</h2>
+      <p class="muted">本規約は、本サービス（以下「本サービス」といいます）の利用条件を定めるものです。利用者は、本サービスを利用することにより、本規約に同意したものとみなされます。</p>
+
+      <details open>
+        <summary>第1条（適用）</summary>
+        <p>本規約は、利用者と本サービスの運営者（以下「運営者」といいます）との間の本サービス利用に関わる一切の関係に適用されます。</p>
+      </details>
+
+      <details>
+        <summary>第2条（利用条件）</summary>
+        <ul>
+          <li>利用者は、LINEアカウントを通じて本サービスを利用できます。</li>
+          <li>本サービスは匿名利用が可能ですが、不正利用防止のため投稿時にLINEのユーザーIDを暗号化して記録します。</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>第3条（禁止事項）</summary>
+        <ul>
+          <li>法令または公序良俗に違反する行為</li>
+          <li>誹謗中傷や差別的な投稿</li>
+          <li>個人情報や第三者の権利を侵害する投稿</li>
+          <li>不正アクセスやシステムへの攻撃</li>
+          <li>その他、運営者が不適切と判断する行為</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>第4条（投稿内容の取り扱い）</summary>
+        <ol>
+          <li>投稿内容の著作権は利用者に帰属します。</li>
+          <li>運営者は、投稿内容を本サービスの提供・改善のために無償で利用できるものとします。</li>
+          <li>運営者は、不適切と判断した投稿を削除できるものとします。</li>
+        </ol>
+      </details>
+
+      <details>
+        <summary>第5条（位置情報の取扱い）</summary>
+        <p>本サービスは、利用者が明示的に送信した位置情報を、地図表示や不正利用防止の目的で利用します。位置情報の詳細はプライバシーポリシーをご確認ください。</p>
+      </details>
+
+      <details>
+        <summary>第6条（免責事項）</summary>
+        <ol>
+          <li>運営者は、投稿内容の正確性・合法性について責任を負いません。</li>
+          <li>運営者は、サービスの中断・停止・終了によって生じた損害について責任を負いません。</li>
+        </ol>
+      </details>
+
+      <details>
+        <summary>第7条（規約の変更）</summary>
+        <p>運営者は、必要に応じて本規約を改定できるものとします。改定後の規約は、本サービス上での告知をもって効力を生じるものとします。</p>
+      </details>
+    </section>
+
+    <!-- プライバシーポリシー -->
+    <section id="privacy" class="card" aria-labelledby="privacy-title">
+      <h2 id="privacy-title">🔒 プライバシーポリシー（ひな形）</h2>
+      <p class="muted">本ポリシーは、本サービスにおける利用者の情報の取扱いについて定めるものです。</p>
+
+      <details open>
+        <summary>第1条（取得する情報）</summary>
+        <ul>
+          <li>LINEのユーザーID</li>
+          <li>投稿内容（コメント等）</li>
+          <li>位置情報（利用者が投稿時に送信した場合）</li>
+          <li>アクセスログ（IPアドレス、ブラウザ情報 等）</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>第2条（利用目的）</summary>
+        <ul>
+          <li>投稿内容を地図上に表示するため</li>
+          <li>不正利用やスパム投稿を防止するため</li>
+          <li>サービスの運営・改善のため</li>
+          <li>法令に基づく問い合わせや対応のため</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>第3条（位置情報の詳細）</summary>
+        <p>位置情報は、利用者の端末またはLINEメッセージに付随する緯度・経度等を指します。利用者が送信した位置情報は、地図表示や集計の目的で利用されます。</p>
+      </details>
+
+      <details>
+        <summary>第4条（第三者提供）</summary>
+        <p>運営者は、以下の場合を除き、取得した情報を第三者に提供しません。</p>
+        <ul>
+          <li>本人の同意がある場合</li>
+          <li>法令に基づき開示が必要な場合</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>第5条（情報の管理）</summary>
+        <p>運営者は、取得した情報を適切に管理し、漏洩・改ざん・不正アクセスを防止するための合理的な安全管理措置を講じます。</p>
+      </details>
+
+      <details>
+        <summary>第6条（保存期間）</summary>
+        <p>取得した情報は、利用目的の達成に必要な期間保存し、その後は削除または匿名化します。</p>
+      </details>
+
+      <details>
+        <summary>第7条（利用者の権利）</summary>
+        <p>利用者は、自身の情報の開示・訂正・削除を運営者に請求できます。その場合は、運営者の定める手続に従って対応します。</p>
+      </details>
+
+      <details>
+        <summary>第8条（改定）</summary>
+        <p>運営者は、本ポリシーを随時改定できるものとします。改定後は、本サービス上で告知を行います。</p>
+      </details>
+
+      <details>
+        <summary>第9条（お問い合わせ窓口）</summary>
+        <div class="grid cols-2">
+          <div>
+            <div class="pill">運営者名</div>
+            <p id="operator-name">ぴょん活マップ開発チーム</p>
+          </div>
+          <div>
+            <div class="pill">連絡先</div>
+            <p id="contact-email">ne3right@gmail.com</p>
+          </div>
+        </div>
+        <a class="cta" href="#contact" aria-label="お問い合わせへ移動">お問い合わせへ</a>
+      </details>
+    </section>
+
+    <!-- お問い合わせ -->
+    <section id="contact" class="card" aria-labelledby="contact-title">
+      <h2 id="contact-title">✉️ お問い合わせ</h2>
+      <p class="muted">以下の連絡先までご連絡ください。内容確認後、可能な範囲で対応します。</p>
+      <ul>
+        <li><strong>運営者名：</strong><span id="contact-operator">usakana</span></li>
+        <li><strong>メール：</strong><span id="contact-mail">ne3right@gmail.com</span></li>
+      </ul>
+    </section>
+
+    <p class="footer">※ 本ページは雛形（ドラフト）です。実運用前に専門家の確認を推奨します。</p>
+  </div>
+
+  <script>
+    // 置換しやすいように、URLパラメータで運営者名・連絡先を差し込める簡易スクリプト
+    // 例: terms.html?name=Pyokatsu&mail=info%40example.com
+    (function(){
+      const p = new URLSearchParams(location.search);
+      const name = p.get('name');
+      const mail = p.get('mail');
+      if (name) {
+        document.querySelectorAll('#operator-name, #contact-operator').forEach(el => el.textContent = name);
+      }
+      if (mail) {
+        document.querySelectorAll('#contact-email, #contact-mail').forEach(el => el.textContent = mail);
+      }
+    })();
+  </script>
+</body>
+</html>
